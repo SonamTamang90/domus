@@ -13,7 +13,7 @@ export interface AboutContent {
 }
 
 export const aboutContent: AboutContent = {
-  tagline: "ESTABLISHED IN 2008",
+  tagline: "WHY CHOOSE US?",
   heading: "Redefining the Art of Luxury Living",
   body: [
     "At Domus, we don't just sell properties—we curate lifestyles. For over 15 years, we've been the trusted partner for discerning clients seeking the world's most exceptional homes.",
