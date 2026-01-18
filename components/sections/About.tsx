@@ -5,7 +5,7 @@ import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { aboutContent } from "@/data/about";
 
-export function AboutSection() {
+export function About() {
   return (
     <SectionContainer background="white" id="about">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">

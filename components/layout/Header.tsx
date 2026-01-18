@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Button } from "./ui";
+import { Button } from "../ui";
 
 function Logo() {
   return (
@@ -40,7 +40,9 @@ export function Header() {
 
           {/* Contact Us */}
           <div className="hidden md:block">
-            <Button size="sm" showIcon={false}>Contact Us</Button>
+            <Button size="sm" showIcon={false}>
+              Contact Us
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}

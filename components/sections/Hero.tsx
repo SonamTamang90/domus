@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "./ui";
+import { Button } from "../ui";
 
 function TrustIndicators() {
   const indicators = [
@@ -57,7 +57,9 @@ export function Hero() {
 
           {/* Description */}
           <p className="text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-light">
-            Discover extraordinary homes that redefine modern living. From sleek architectural masterpieces to innovative smart residences, find your dream home in the future.
+            Discover extraordinary homes that redefine modern living. From sleek
+            architectural masterpieces to innovative smart residences, find your
+            dream home in the future.
           </p>
 
           {/* CTA Button */}
