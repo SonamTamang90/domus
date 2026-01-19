@@ -10,6 +10,10 @@ export interface Property {
   category: string;
   featured: boolean;
   status: string;
+  roi: string;
+  capRate: string;
+  monthlyIncome: string;
+  investmentType: string;
 }
 
 export const featuredProperties: Property[] = [
@@ -21,10 +25,14 @@ export const featuredProperties: Property[] = [
     bedrooms: 4,
     bathrooms: 5,
     sqft: "5,200",
-    image: "/hero-2.png",
+    image: "/property-one.png",
     category: "Penthouse",
     featured: true,
-    status: "Available"
+    status: "Available",
+    roi: "12.5%",
+    capRate: "5.8%",
+    monthlyIncome: "$15,200",
+    investmentType: "Luxury Rental",
   },
   {
     id: "002",
@@ -34,10 +42,14 @@ export const featuredProperties: Property[] = [
     bedrooms: 6,
     bathrooms: 7,
     sqft: "8,500",
-    image: "/hero.png",
+    image: "/property-2.png",
     category: "Estate",
-    featured: false,
-    status: "Available"
+    featured: true,
+    status: "Available",
+    roi: "15.2%",
+    capRate: "6.5%",
+    monthlyIncome: "$22,800",
+    investmentType: "Vacation Rental",
   },
   {
     id: "003",
@@ -47,9 +59,13 @@ export const featuredProperties: Property[] = [
     bedrooms: 3,
     bathrooms: 4,
     sqft: "4,100",
-    image: "/hero-2.png",
+    image: "/property-3.png",
     category: "Loft",
-    featured: false,
-    status: "Under Contract"
-  }
+    featured: true,
+    status: "Available",
+    roi: "10.8%",
+    capRate: "5.2%",
+    monthlyIncome: "$11,500",
+    investmentType: "Long-term Rental",
+  },
 ];
