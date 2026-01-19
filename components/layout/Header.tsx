@@ -20,18 +20,6 @@ const BG_TRANSITION = {
   mass: 0.8,
 };
 
-const NAV_VARIANTS = {
-  initial: { boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)' },
-  scrolled: {
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)'
-  },
-};
-
-const NAV_TRANSITION = {
-  duration: 0.3,
-  ease: 'easeInOut' as const,
-};
-
 function Logo({ isScrolled }: { isScrolled: boolean }) {
   return (
     <div className="flex items-center gap-2">
@@ -96,13 +84,8 @@ export function Header() {
 
   return (
     <header>
-      <motion.nav
-        initial="initial"
-        animate={isScrolled ? 'scrolled' : 'initial'}
-        variants={NAV_VARIANTS}
-        transition={NAV_TRANSITION}
-      >
-        <Container className="fixed top-0 left-0 right-0 z-50">
+      <nav>
+        <Container className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-sm' : ''}`}>
           {/* Sliding white background */}
           <motion.div
             className="absolute inset-0 bg-white -z-10"
@@ -141,7 +124,7 @@ export function Header() {
             </button>
           </div>
         </Container>
-      </motion.nav>
+      </nav>
     </header>
   );
 }
