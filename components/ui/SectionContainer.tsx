@@ -1,7 +1,7 @@
 interface SectionContainerProps {
   children: React.ReactNode;
   className?: string;
-  background?: "white" | "black" | "gradient";
+  background?: "white" | "black" | "gradient" | "gray" | "blue";
   id?: string;
 }
 
@@ -15,6 +15,8 @@ export function SectionContainer({
     white: "bg-white",
     black: "bg-black",
     gradient: "bg-gradient-to-br from-black to-slate-900",
+    gray: "bg-gray-50",
+    blue: "bg-blue-100",
   };
 
   return (
