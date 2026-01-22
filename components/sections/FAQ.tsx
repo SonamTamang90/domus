@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SectionContainer } from "../ui/SectionContainer";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 interface FAQItem {
   question: string;
@@ -53,38 +54,40 @@ export function FAQ() {
   return (
     <SectionContainer background="white" id="faq">
       {/* Section Header */}
-      <div className="mb-12 lg:mb-16">
-        <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
-          FAQ
-        </p>
-        <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
-          Find answers to common questions about investing in real estate with
-          Hometi.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="mb-12 lg:mb-16">
+          <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
+            FAQ
+          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
+            Find answers to common questions about investing in real estate with
+            Hometi.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 lg:items-start">
         {/* Left: Image */}
-        <div className="relative h-100 lg:h-150 overflow-hidden lg:col-span-2 lg:sticky lg:top-24">
-          <Image
-            src="/faq.png"
-            alt="Beautiful modern house"
-            fill
-            className="object-cover"
-          />
-        </div>
+        <FadeIn className="lg:col-span-2">
+          <div className="relative h-100 lg:h-150 overflow-hidden lg:sticky lg:top-24">
+            <Image
+              src="/faq.png"
+              alt="Beautiful modern house"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </FadeIn>
 
         {/* Right: FAQ Items */}
-        <div className="space-y-4 lg:col-span-3">
+        <FadeInStagger className="lg:col-span-3 space-y-4">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="rounded-xl bg-gray-50 border border-black/10 overflow-hidden transition-all duration-300"
-            >
+            <FadeIn key={index}>
+              <div className="rounded-xl bg-gray-50 border border-black/10 overflow-hidden transition-all duration-300">
               {/* Question Button */}
               <button
                 onClick={() => toggleFAQ(index)}
@@ -117,9 +120,10 @@ export function FAQ() {
                   </p>
                 </div>
               </div>
-            </div>
+              </div>
+            </FadeIn>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </SectionContainer>
   );

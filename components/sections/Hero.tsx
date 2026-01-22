@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "../ui";
+import { FadeInStagger, FadeIn } from "../shared/FadeIn";
 
 function TrustIndicators() {
   const indicators = [
@@ -44,34 +47,44 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col justify-between pt-20 pb-8">
-        <div className="flex-1 flex flex-col justify-center">
+        <FadeInStagger faster className="flex-1 flex flex-col justify-center">
           {/* Tagline */}
-          <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-white/90 uppercase mb-6">
-            Where Vision Meets Reality
-          </p>
+          <FadeIn>
+            <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-white/90 uppercase mb-6">
+              Where Vision Meets Reality
+            </p>
+          </FadeIn>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-medium! text-white leading-tight mb-6 max-w-4xl">
-            Spaces designed for tomorrow
-          </h1>
+          <FadeIn>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-medium! text-white leading-tight mb-6 max-w-4xl">
+              Spaces designed for tomorrow
+            </h1>
+          </FadeIn>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-light">
-            Discover extraordinary homes that redefine modern living. From sleek
-            architectural masterpieces to innovative smart residences, find your
-            dream home in the future.
-          </p>
+          <FadeIn>
+            <p className="text-lg sm:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-light">
+              Discover extraordinary homes that redefine modern living. From sleek
+              architectural masterpieces to innovative smart residences, find your
+              dream home in the future.
+            </p>
+          </FadeIn>
 
           {/* CTA Button */}
-          <div>
-            <Button>Get started</Button>
-          </div>
-        </div>
+          <FadeIn>
+            <div>
+              <Button>Get started</Button>
+            </div>
+          </FadeIn>
+        </FadeInStagger>
 
         {/* Trust Indicators */}
-        <div className="self-start">
-          <TrustIndicators />
-        </div>
+        <FadeIn>
+          <div className="self-start">
+            <TrustIndicators />
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

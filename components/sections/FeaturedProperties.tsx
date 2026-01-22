@@ -4,16 +4,13 @@ import { Fragment } from "react";
 import { SectionContainer } from "../ui/SectionContainer";
 import { Button } from "../ui/Button";
 import { featuredProperties } from "@/data/properties";
-
-interface PropertyCardProps {
-  property: typeof featuredProperties[0];
-}
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 function PropertyImageCard({ property }: { property: typeof featuredProperties[0] }) {
   return (
     <div className="group relative rounded-2xl overflow-hidden bg-white border border-black/10 hover:shadow-xl transition-all duration-300 h-full">
       {/* Property Image */}
-      <div className="relative h-full min-h-[400px] overflow-hidden">
+      <div className="relative h-full min-h-100 overflow-hidden">
         <Image
           src={property.image}
           alt={property.title}
@@ -111,36 +108,42 @@ export function FeaturedProperties() {
   return (
     <SectionContainer background="white" id="properties">
       {/* Section Header */}
-      <div className="mb-12 lg:mb-16">
-        <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
-          FEATURED OPPORTUNITIES
-        </p>
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
-              Investment Masterpieces
-            </h2>
-            <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
-              Handpicked investment opportunities with proven returns. Each property has been thoroughly analyzed for maximum profitability.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <Button variant="secondary" size="sm" showIcon={false}>
-              View All
-            </Button>
+      <FadeIn>
+        <div className="mb-12 lg:mb-16">
+          <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
+            FEATURED OPPORTUNITIES
+          </p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div>
+              <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
+                Investment Masterpieces
+              </h2>
+              <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
+                Handpicked investment opportunities with proven returns. Each property has been thoroughly analyzed for maximum profitability.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <Button variant="secondary" size="sm" showIcon={false}>
+                View All
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </FadeIn>
 
       {/* Properties Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {featured.map((property) => (
           <Fragment key={property.id}>
-            <PropertyImageCard property={property} />
-            <PropertyDetailsCard property={property} />
+            <FadeIn>
+              <PropertyImageCard property={property} />
+            </FadeIn>
+            <FadeIn>
+              <PropertyDetailsCard property={property} />
+            </FadeIn>
           </Fragment>
         ))}
-      </div>
+      </FadeInStagger>
     </SectionContainer>
   );
 }

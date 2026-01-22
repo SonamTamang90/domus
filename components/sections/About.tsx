@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { SectionContainer } from "../ui/SectionContainer";
 import { Button } from "../ui/Button";
 import { aboutContent } from "@/data/about";
+import { FadeIn } from "../shared/FadeIn";
 
 // Group Avatar Component
 function GroupAvatar() {
@@ -39,7 +40,7 @@ export function About() {
     <SectionContainer background="white" id="about">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
         {/* Left: Title and Description */}
-        <div className="flex flex-col">
+        <FadeIn className="flex flex-col">
           <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-6">
             {aboutContent.tagline}
           </p>
@@ -55,10 +56,10 @@ export function About() {
           <div>
             <Button variant="secondary" size="sm" showIcon={false}>Learn More</Button>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Right: Bento Grid */}
-        <div className="grid grid-cols-2 auto-rows-fr gap-4">
+        <FadeIn className="grid grid-cols-2 auto-rows-fr gap-4">
           {/* Row 1: Three cards */}
           <div className="col-span-2 sm:col-span-1 rounded-2xl bg-gray-50/40 border border-black/10 p-4 sm:p-6 flex flex-col">
             <div className="flex items-center gap-3 mb-3">
@@ -146,7 +147,7 @@ export function About() {
               Hand-picked properties that meet our highest standards.
             </p>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </SectionContainer>
   );

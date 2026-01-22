@@ -1,5 +1,6 @@
 import { SectionContainer } from "../ui/SectionContainer";
 import Image from "next/image";
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 interface Testimonial {
   quote: string;
@@ -40,25 +41,27 @@ export function Testimonials() {
   return (
     <SectionContainer background="white" id="testimonials">
       {/* Section Header */}
-      <div className="mb-12 lg:mb-16">
-        <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
-          TESTIMONIALS
-        </p>
-        <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
-          Trusted by Investors
-        </h2>
-        <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
-          Real stories from real investors who have grown their wealth with our
-          guidance.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="mb-12 lg:mb-16">
+          <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
+            TESTIMONIALS
+          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
+            Trusted by Investors
+          </h2>
+          <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
+            Real stories from real investors who have grown their wealth with our
+            guidance.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* Testimonials Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className={`
+          <FadeIn key={index}>
+            <div
+              className={`
               rounded-2xl p-8 flex flex-col justify-between min-h-95
               ${
                 testimonial.bgColor === "white"
@@ -97,9 +100,10 @@ export function Testimonials() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         ))}
-      </div>
+      </FadeInStagger>
     </SectionContainer>
   );
 }

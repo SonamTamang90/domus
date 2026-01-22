@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { SectionContainer } from "../ui/SectionContainer";
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 interface Step {
   number: string;
@@ -39,25 +40,25 @@ export function HowItWorks() {
   return (
     <SectionContainer background="white" id="how-it-works">
       {/* Section Header */}
-      <div className="mb-12 lg:mb-16">
-        <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
-          THE PROCESS
-        </p>
-        <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
-          Built for Success
-        </h2>
-        <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
-          A seamless journey guided by expertise, backed by data, and built on trust.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="mb-12 lg:mb-16">
+          <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
+            THE PROCESS
+          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
+            Built for Success
+          </h2>
+          <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
+            A seamless journey guided by expertise, backed by data, and built on trust.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* Steps Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {steps.map((step) => (
-          <div
-            key={step.number}
-            className="relative group rounded-2xl bg-gray-50 border border-black/10 p-6 sm:p-8 hover:shadow-lg transition-all duration-300"
-          >
+          <FadeIn key={step.number}>
+            <div className="relative group rounded-2xl bg-gray-50 border border-black/10 p-6 sm:p-8 hover:shadow-lg transition-all duration-300">
             {/* Step Card */}
             <div className="flex flex-col">
               {/* Icon Circle */}
@@ -75,9 +76,10 @@ export function HowItWorks() {
                 {step.description}
               </p>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         ))}
-      </div>
+      </FadeInStagger>
     </SectionContainer>
   );
 }

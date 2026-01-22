@@ -3,6 +3,7 @@
 import { SectionContainer } from "../ui/SectionContainer";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -30,25 +31,28 @@ export function Contact() {
   return (
     <SectionContainer background="white" id="contact">
       {/* Section Header */}
-      <div className="mb-12 lg:mb-16">
-        <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
-          CONTACT
-        </p>
-        <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
-          Get in <span className="italic font-light">touch</span>
-        </h2>
-        <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
-          Receive expert guidance to maximize your next purchase, sale, or
-          investment.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="mb-12 lg:mb-16">
+          <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
+            CONTACT
+          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-tight mb-4">
+            Get in <span className="italic font-light">touch</span>
+          </h2>
+          <p className="text-pretty text-sm sm:text-base text-black/70 font-light leading-relaxed max-w-2xl">
+            Receive expert guidance to maximize your next purchase, sale, or
+            investment.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
         {/* Left: Contact Information */}
-        <div className="space-y-6">
+        <FadeInStagger className="space-y-6">
           {/* Address */}
-          <div className="flex items-start gap-4">
+          <FadeIn>
+            <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
               <Icon
                 icon="lucide:map-pin"
@@ -60,10 +64,12 @@ export function Contact() {
                 123 Investment Street, Seattle, WA 98101
               </p>
             </div>
-          </div>
+            </div>
+          </FadeIn>
 
           {/* Email */}
-          <div className="flex items-start gap-4">
+          <FadeIn>
+            <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
               <Icon
                 icon="lucide:mail"
@@ -75,10 +81,12 @@ export function Contact() {
                 contact@hometi.com
               </p>
             </div>
-          </div>
+            </div>
+          </FadeIn>
 
           {/* Phone */}
-          <div className="flex items-start gap-4">
+          <FadeIn>
+            <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
               <Icon
                 icon="lucide:phone"
@@ -90,11 +98,13 @@ export function Contact() {
                 (555) 123-4567
               </p>
             </div>
-          </div>
-        </div>
+            </div>
+          </FadeIn>
+        </FadeInStagger>
 
         {/* Right: Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <FadeIn>
+          <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div>
             <label
@@ -181,7 +191,8 @@ export function Contact() {
           >
             Send Message
           </button>
-        </form>
+          </form>
+        </FadeIn>
       </div>
     </SectionContainer>
   );

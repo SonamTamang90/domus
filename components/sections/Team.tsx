@@ -1,6 +1,7 @@
 import { SectionContainer } from "../ui/SectionContainer";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { FadeIn, FadeInStagger } from "../shared/FadeIn";
 
 interface TeamMember {
   name: string;
@@ -46,7 +47,7 @@ export function Team() {
     <SectionContainer background="blue" id="team">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         {/* Left Side - Section Header */}
-        <div className="lg:col-span-4 flex flex-col justify-start">
+        <FadeIn className="lg:col-span-4 flex flex-col justify-start">
           <p className="text-[10px] sm:text-xs font-medium text-black/60 uppercase mb-4">
             OUR TEAM
           </p>
@@ -64,15 +65,13 @@ export function Team() {
           <button className="inline-flex items-center justify-center bg-black text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-black/90 transition-colors w-fit">
             Meet the team
           </button>
-        </div>
+        </FadeIn>
 
         {/* Right Side - Team Grid */}
-        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <FadeInStagger className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="group rounded-2xl bg-white border border-black/10 overflow-hidden hover:shadow-lg transition-all duration-300"
-            >
+            <FadeIn key={index}>
+              <div className="group rounded-2xl bg-white border border-black/10 overflow-hidden hover:shadow-lg transition-all duration-300">
               {/* Avatar */}
               <div className="relative w-full aspect-3/4 overflow-hidden">
                 <Image
@@ -97,9 +96,10 @@ export function Team() {
                   <Icon icon="mdi:arrow-right" className="size-5 text-white" />
                 </div>
               </div>
-            </div>
+              </div>
+            </FadeIn>
           ))}
-        </div>
+        </FadeInStagger>
       </div>
     </SectionContainer>
   );
