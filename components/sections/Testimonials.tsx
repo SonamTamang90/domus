@@ -62,7 +62,7 @@ export function Testimonials() {
           <FadeIn key={index}>
             <div
               className={`
-              rounded-2xl p-8 flex flex-col justify-between min-h-95
+              rounded-2xl p-8 flex flex-col justify-between min-h-[420px]
               ${
                 testimonial.bgColor === "white"
                   ? "bg-white border border-black/10"
