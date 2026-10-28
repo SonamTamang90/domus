@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Inter } from "next/font/google";
+import { Manrope, Newsreader } from "next/font/google";
 import "../styles/globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+// Free stand-in for PP Editorial Old (Belgrade Arbor). The opsz axis gives large text its sharp display cut
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.variable} ${inter.variable} antialiased`}
+        className={`${newsreader.variable} ${manrope.variable} antialiased`}
       >
         {children}
       </body>

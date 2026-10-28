@@ -1,18 +1,59 @@
 @import "tailwindcss";
 
+/* Design tokens — see docs/PROJECT.md §3 (Palette B · Travertine & Olive) */
+@theme {
+  /* Colors */
+  --color-travertine: #f4f0e6; /* page background */
+  --color-limestone: #e6dfcf; /* surfaces, cards, quiet sections */
+  --color-olive: #2e3a2c; /* ink: text, dark sections, primary buttons */
+  --color-sand: #b49a78; /* decorative: hairlines, labels on olive, textures */
+  --color-sage: #6f7d5c; /* accent: links, italic highlights, active states */
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Tracking */
+  --tracking-kicker: 0.25em;
+}
+
 @theme inline {
   /* Font Families - Tailwind v4 */
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-geist);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  /* Display type scale (fluid) */
+  --text-display: clamp(4.5rem, 10.5vw, 13rem);
+  --text-display--line-height: 0.85;
+  --text-h1: clamp(3rem, 6vw, 6rem);
+  --text-h1--line-height: 0.95;
+  --text-h2: clamp(2.5rem, 4.5vw, 4rem);
+  --text-h2--line-height: 1.05;
+  --text-h3: clamp(1.75rem, 2.5vw, 2rem);
+  --text-h3--line-height: 1.15;
+  --text-kicker: 0.6875rem;
+  --text-kicker--line-height: 1.4;
 }
 
-body {
-  background: #ffffff;
-  color: #171717;
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+/* In the base layer so utilities (e.g. font-normal on the hero title) can override these */
+@layer base {
+  /* `@theme inline` values only exist inside utilities, so plain CSS uses the next/font variables directly */
+  body {
+    background: var(--color-travertine);
+    color: var(--color-olive);
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Global Heading Styles — light (300) like Belgrade's Editorial Old Ultralight */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+    font-weight: 300;
+    font-synthesis: none;
+  }
 }
 
-/* Global Heading Styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+::selection {
+  background: var(--color-olive);
+  color: var(--color-travertine);
 }
